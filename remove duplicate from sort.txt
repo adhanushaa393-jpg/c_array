@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100], n, i, j, k;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d sorted elements: ", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Remove duplicates
+    for (i = 0; i < n - 1; i++) {
+        if (arr[i] == arr[i + 1]) {
+            // Shift left to remove duplicate
+            for (j = i + 1; j < n - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            n--;     // reduce size
+            i--;     // check same index again
+        }
+    }
+
+    printf("Array after removing duplicates: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
